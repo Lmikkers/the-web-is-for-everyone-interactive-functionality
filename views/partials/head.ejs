@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Hallen</title>
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+
+     <!-- GOOGLE FONTS -->
+    
+     <!-- EINDE GOOGLE FONTS -->
+    
+    <!-- <script src="scripts/client.js" defer></script> -->
+  </head>
+  <body>  
+
+  <nav>
+    <ul>
+      <!-- als de current van de pagina matcht geeft hij een active class -->
+      <li><a href="/"<% if (current == '/') { %> class="active"<% } %>>Home</a></li>
+      <li><a href="/vraag-aanbod"<% if (current == '/vraag-aanbod') { %> class="active"<% } %>>Vraag en aanbod</a></li>
+      <li><a href="/contact"<% if (current == '/contact') { %> class="active"<% } %>>Contact</a></li>
+    </ul>
+  </nav>
