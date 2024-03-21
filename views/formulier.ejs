@@ -1,0 +1,85 @@
+<%- include('./partials/head', {current: '/opdracht-aanmelden'}); %>
+
+<header>
+    <h1>Formulier</h1>
+</header>
+
+<main>
+    <form action="">
+
+        <fieldset>
+            <h3>Stap 1</h3>
+            <legend>Persoonlijke gegevens</legend>
+
+            <label for="name">Voornaam</label>
+            <input type="text" id="name" name="name" required placeholder="Naam"/>
+
+            <label for="surname">Achternaam</label>
+            <input type="text" id="surname" name="surname" required placeholder="Achternaam"/>
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="naam@email.com">
+
+            <label for="vraagAanbod">Vraag of aanbod?</label>
+            <input type="radio" name="vraagAanbod" value="Vraag">
+            <label for="vraag">Vraag</label>
+
+            <input type="radio" name="vraagAanbod" value="Aanbod">
+            <label for="aanbod">Aanbod</label>
+
+            <label for="buurt-select">Kies uw buurt:</label>
+
+            <select name="buurt" id="buurt-select">
+                <option value="">--Kies een buurt--</option>
+                <option value="bos-en-lommer">Bos en Lommer</option>
+                <option value="westerpark">Westerpark</option>
+                <option value="de-baarsjes">De Baarsjes</option>
+                <option value="oud-west">Oud West</option>
+                <option value="nieuw-west">Nieuw West</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <h3>Stap 2</h3>
+            <legend>Initiatief informatie</legend>
+
+            <label for="name">
+                Titel initiatief
+            </label>
+            <input type="text" name="titel" placeholder="Titel initiatief">
+
+            <label for="description"></label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="beschrijf uw initiatief"></textarea>
+
+            <label for="category">Kies uw categoriën:</label>
+            <input type="checkbox" name="category" id="tuin" value="Tuin"> <label for="tuin">Tuin</label>
+            <input type="checkbox" name="category" id="feest" value="Feest"> <label for="feest">Feest</label>
+            <input type="checkbox" name="category" id="verjaardag" value="Verjaardag"> <label for="vejaardag">Verjaardag</label>
+            <input type="checkbox" name="category" id="voertuig" value="Voertuig"> <label for="voertuig">Voertuig</label>
+            <input type="checkbox" name="category" id="hulp" value="Hulp"> <label for="hulp">Hulp</label>
+            <input type="checkbox" name="category" id="buiten" value="Buiten"> <label for="buiten">Buiten</label>
+            <input type="checkbox" name="category" id="binnen" value="Binnen"> <label for="binnen">Binnen</label>
+
+            <label for="image">Upload afbeelding</label>
+            <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
+        </fieldset>
+
+        <fieldset>
+            <h3>Stap 3</h3>
+            <legend>Hoelaat en waar Initiatief</legend>
+
+            <label for="start">Start datum:</label>
+            <input type="date" id="start" name="trip-start" value="20-04-2024" min="20-04-2024" max="20-04-2026" />
+
+            <label for="end">Eind datum:</label>
+            <input type="date" id="start" name="trip-start" value="20-04-2024" min="20-04-2024" max="20-04-2026" />
+
+            <label for="time">Hoelaat</label>
+            <input type="time" value="13:30">
+
+        </fieldset>
+
+    </form>
+</main>
+
+<%- include('./partials/foot') %>

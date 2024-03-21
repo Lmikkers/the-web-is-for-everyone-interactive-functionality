@@ -34,6 +34,15 @@ app.get('/', function(request, response) {
 app.get('/contact', function(request, response) {
 	response.render('contact')
 })
+// About pagina 
+app.get('/about', function(request, response) {
+	response.render('about')
+})
+// FAQ pagina 
+app.get('/faq', function(request, response) {
+	response.render('faq')
+})
+
 
 // Vraag en aanbod pagina 
 app.get('/vraag-aanbod', function(request, response) {
@@ -51,6 +60,24 @@ app.get('/vraag-aanbod/:serviceId', function(request, response) {
 	})
 })
 
+// Opdracht aanmelden pagina
+// Weet nog niet welke api ik in moet laden > hier nog naar kijken
+app.get('/opdracht-aanmelden', function(request, response) {
+
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('opdracht-aanmelden', {services: servicesDataUitDeAPI.data})
+	});
+	
+})
+
+// De formulier pagina van de opdracht aanmelden
+app.get('/opdracht-aanmelden/formulier', function(request, response) {
+
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('formulier', {services: servicesDataUitDeAPI.data})
+	});
+	
+})
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
