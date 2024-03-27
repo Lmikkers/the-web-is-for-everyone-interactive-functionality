@@ -6,14 +6,19 @@
 html {
     scroll-behavior: smooth;
 }
-body {
+body,
+input,
+textarea,
+select {
     /* font-family: Arial, Helvetica, sans-serif; */
-    font-family: "Roboto", sans-serif;
-    color: var(--fontColor);
+    font-family: "Roboto", sans-serif; 
 }
 :root {
     --fontColor: #343434;
     --fontHoverColor: #5e5e5e;
+    /* --mainColor: #fea260; */
+    --mainColor: #50C878;
+    --mainColorHover: #46ad68;
 
     --lightBackground: #efefef;
 }
@@ -22,12 +27,17 @@ h1 {
     font-size: 3rem;
     text-transform: uppercase;
     letter-spacing: .2rem;
+    margin-bottom: 1rem;
 }
 h2 {
     font-size: 2.25rem;
     text-transform: uppercase;
 }
-.smallTitle,
+.smallTitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: .75rem;
+}
 .services h3 {
     text-transform: uppercase;
     font-weight: 100;
@@ -55,6 +65,20 @@ article img {
 header {
     margin-top: 4rem;
 }
+header.screenHeight {
+    height: calc(100vh - 4rem);
+    padding-top: 8rem;
+}
+header h2 {
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
+header a.btn {
+    display: inline-block;
+}
+header article a {
+    align-self: flex-start;
+}
 section {
     width: 100%;
 }
@@ -63,18 +87,67 @@ section > h3,
 section > h4 {
     text-align: center;
 }
+.title {
+    color: var(--mainColor);
+}
+.padding5 {
+    padding: 5rem 0;
+}
 a.btn {
-    border: 3px solid var(--fontColor);
+    border: 3px solid var(--mainColor);
+    color: var(--mainColor);
     border-radius: 4px;
     text-transform: uppercase;
     text-align: center;
+    margin-top: 1.5rem;
     padding: 1rem 2rem;
 
     transition: 0.5s ease;
 }
 a.btn:hover {
-    background-color: #343434;
+    background-color: var(--mainColor);
     color: white;
+}
+button {
+    background-color: var(--mainColor);
+    color: white;
+    border: unset;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    align-self: center;
+
+    margin-top: 1rem;
+
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--mainColorHover);
+}
+button.line {
+    background-color: transparent;
+    color: var(--mainColor);
+    border: 3px solid var(--mainColor);
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    align-self: center;
+   
+    text-transform: uppercase;
+    text-align: center;
+   
+    cursor: pointer;
+}
+button.line:hover {
+    background-color: var(--mainColor);
+    color: white;
+}
+form button {
+    width: 100%;
 }
 .center {
     text-align: center;
@@ -104,20 +177,21 @@ nav {
 
     width: 100%;
     height: 4rem;
-    /* background-color: rgb(244, 244, 244); */
-    background-color: #343434;
+    padding: 0 5rem;
+    background-color: #fff;
+    /* background-color: #343434; */
+    box-shadow: rgb(0 0 0 / 3%) 0px 4px 6px -1px, rgb(183 183 183 / 6%) 0px 2px 4px -1px;
     
     display: flex;
     align-items: center;
+    justify-content: space-between;
     z-index: 999;
 }
 nav ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
     list-style: none;
-    padding: 0 5rem;
     height: 100%;
 }
 nav ul li {
@@ -126,17 +200,19 @@ nav ul li {
 }
 nav ul li a {
     padding: 1.4rem;
-    color: #fff;
+    color: var(--fontColor);
     text-decoration: none;
     text-transform: uppercase;
+    transition: ease-in-out .25s;
 }
 nav ul li a:hover {
-    background-color: #646464;
-    color: #e7e7e7;
+    color: var(--mainColor);
+    border-bottom: 2px solid var(--mainColor);
 }
 nav ul li a.active {
     font-weight: bold;
-    background-color: #646464;
+    color: var(--mainColor);
+    border-bottom: 2px solid var(--mainColor);
 }
 /* END PARTIALS HEAD */
 
@@ -150,6 +226,7 @@ header.home {
     width: 100vw;
     height: calc(100vh - 4rem);
     margin-top: 4rem;
+    padding: unset;
 }
 header.home article {
     position: relative;
@@ -168,16 +245,6 @@ header.home div:nth-child(2) {
     background-image: url("/assets/images/deHallenGreen.png");
     background-position: center;
     background-size: cover;
-}
-header.home h1 {
-    margin-bottom: 4rem;
-}
-header h2 {
-    font-weight: 100;
-    margin-bottom: 1rem;
-}
-header article a {
-    align-self: flex-start;
 }
 /* BLOCKQUOTE */
 article:has(blockquote) {
@@ -276,6 +343,90 @@ article span {
 
 
 
+/* FORMULIER  */
+.gridForm {
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+}
+form {
+    grid-column: 2;
+}
+fieldset {
+    border: none;
+    font-size: 1em;
+    padding: 1rem 0;
+}
+fieldset > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid lightgray;
+}
+fieldset div:first-child legend {
+    order: 2;
+}
+legend {
+    text-align: center;
+    width: 100%;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.75rem;
+}
+label,
+legend {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+input,
+textarea,
+select {
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    width: unset;
+}
+input[type="radio"] {
+    margin-right: 1rem;
+}
+label:has(input[type="checkbox"]) {
+    min-width: 5rem;
+    border: none;
+    cursor: pointer;
+}
+/* hides the checkbox  */
+label input[type="checkbox"] {
+    display: none;
+}
+label span {
+    display: block;
+    background: rgb(215, 215, 215);
+    padding: .5rem;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+}
+input:checked + span {
+    background: var(--mainColor);
+    color: white;
+}
+
+form h3 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+
 /* DETAIL PAGINA */
 .detail section {
     padding: 4rem 0;
@@ -318,14 +469,11 @@ article span {
     overflow: hidden;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
-.detailHeader a.btn {
-    margin-top: 1rem;
-}
 .detailHeader .description {
     max-height: 15em;
     overflow: hidden;
     margin-bottom: 1rem;
-    mask: linear-gradient(red calc(100% - 2em), transparent);
+    mask: linear-gradient(rgb(123, 123, 123) calc(100% - 2em), transparent);
 }
 /* CONTACT BLOCK */
 .contactBlock {
@@ -356,16 +504,6 @@ article span {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.contactBlock button {
-    border: 3px solid var(--fontColor);
-    border-radius: 4px;
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    padding: 1rem 2rem;
-
-    align-self: center;
 }
 /* END CONTACT BLOCK */
 
@@ -418,6 +556,7 @@ header.smallHeader {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 /* END OVERIGE PAGINA  */
 
@@ -451,7 +590,6 @@ header.contact {
 .contact section article form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 
     background: #e7e7e7;
     padding: 2rem;
@@ -469,24 +607,12 @@ header.contact {
     border-bottom: 2px solid #e7e7e7;
     border-radius: 4px;
 }
+.contact label {
+    margin-bottom: 0;
+}
 
-.contact form button {
-    margin-top: 1rem;
-    background-color: #242424;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-    border: unset;
-    border-radius: 4px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1rem 2rem;
-    letter-spacing: 2px;
-    transition: 0.5s ease;
-}
-.contact form button:hover {
-    background-color: #000000;
-}
+
+
 /* END CONTACT */
 
 
@@ -546,11 +672,12 @@ footer ul li {
     }
     h1,
     .detailHeader h1 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
     h2,
-    header h2 {
-        font-size: 1.25rem;
+    header h2,
+    legend {
+        font-size: 1.5rem;
     }
     p {
         font-size: 1rem;
@@ -561,7 +688,9 @@ footer ul li {
     .services .items,
     .contactBlock article,
     .contact section div,
-    footer > div  {
+    footer > div,
+    .gridForm,
+    .col2  {
         grid-template-columns: 1fr;
     } 
     .home header article {
