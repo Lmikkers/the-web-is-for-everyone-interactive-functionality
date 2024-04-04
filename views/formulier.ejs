@@ -8,7 +8,7 @@
 <main>
     <section class="container padding5">
         <div class="gridForm">
-            <form action="">
+            <form method="post" action="/" >
 
                 <fieldset>
                     <div>
@@ -47,7 +47,7 @@
         
                     <label for="buurt-select">In welke buurt woont u?:</label>
                     <div class="col2">
-                        <select name="buurt" id="buurt-select">
+                        <select name="buurt" id="buurt-select" required>
                             <option value="">--Kies een buurt--</option>
                             <option value="bos-en-lommer">Bos en Lommer</option>
                             <option value="westerpark">Westerpark</option>
@@ -67,10 +67,10 @@
                     <label for="name">
                         Titel initiatief
                     </label>
-                    <input type="text" name="titel" placeholder="Titel initiatief">
+                    <input type="text" name="titel" placeholder="Titel initiatief" required>
         
                     <label for="description"></label>
-                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Beschrijf uw initiatief"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Beschrijf uw initiatief" required></textarea>
         
                     <label for="category">Kies uw categoriën:</label>
                     <div>

@@ -17,8 +17,10 @@ select {
     --fontColor: #343434;
     --fontHoverColor: #5e5e5e;
     /* --mainColor: #fea260; */
-    --mainColor: #50C878;
-    --mainColorHover: #46ad68;
+    --mainColor: #f29338;
+    --mainColorHover: #d78131;
+    /* --mainColor: #50C878;
+    --mainColorHover: #46ad68; */
 
     --lightBackground: #efefef;
 }
@@ -51,6 +53,22 @@ a {
     text-decoration: none;
     color: var(--fontColor);
 }
+a.more {
+    transition: 0.5s ease;
+    color: var(--mainColor);
+
+    margin-top: 2rem;
+}
+a.more::after {
+    content: ' >';
+}
+a.more:hover {
+    color: var(--mainColorHover);
+}
+a.more:hover::after {
+    padding-left: 4px;
+}
+
 main a:hover {
     color: var(--fontHoverColor);
 }
@@ -299,10 +317,10 @@ article span {
 }
 .services .items article {
     position: relative;
-    background: #fcfcfc;
+    /* background: #fcfcfc; */
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: rgba(132, 132, 132, 0.15) 0px 5px 15px 0px;
+    /* box-shadow: rgba(132, 132, 132, 0.15) 0px 5px 15px 0px; */
     
     transition: all .2s ease-in-out;
 }
@@ -311,12 +329,17 @@ article span {
     transform: scale(1.1);
 }
 .services .items article img {
+    border-radius: 4px;
     height: 16rem;
 }
 .services .items article .description {
-    padding: 2rem 1.5rem;
+    padding: .5rem 0rem;
+}
+.services .items article .description p {
+    margin: 0;
 }
 .services .items article .description h3 {
+    margin: .5rem 0;
     text-transform: unset;
     font-weight: 600;
 }
@@ -360,7 +383,7 @@ fieldset > div:first-of-type {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid var(--lightBackground);
 }
 fieldset div:first-child legend {
     order: 2;
@@ -385,6 +408,8 @@ select {
     padding: 1rem;
     width: 100%;
     margin-bottom: 1rem;
+    border: 1px solid var(--lightBackground);
+    border-radius: 4px;
 }
 input[type="radio"],
 input[type="checkbox"] {
@@ -405,10 +430,14 @@ label input[type="checkbox"] {
 label span {
     display: block;
     background: rgb(215, 215, 215);
-    padding: .5rem;
+    padding: .75rem 1rem;
     border-radius: 4px;
     width: 100%;
     text-align: center;
+    transition: 0.5s ease;
+}
+label span:hover {
+    background: rgb(166, 166, 166);
 }
 input:checked + span {
     background: var(--mainColor);
@@ -616,6 +645,48 @@ header.contact {
 /* END CONTACT */
 
 
+
+
+/* FAQ PAGINA */
+.faq {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+.faqInput {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+details {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 2rem 1rem;
+    border-bottom: 2px solid var(--lightBackground);
+    transition: .25s ease-in;
+}
+details summary {
+    font-weight: 500;
+}
+details summary::marker {
+    color: var(--mainColor);
+}
+details div {
+    margin-top: 1rem;
+    border-left: 2px solid var(--mainColor);
+    padding-left: 1rem;
+    color: #606060;
+}
+details:last-of-type {
+    margin-bottom: 4rem;
+}
+/* input:invalid {
+    border: 1px solid red;
+} */
+
+/* END FAQ PAGINA */
+
+
 /* FOOTER */
 footer {
     width: 100%;
@@ -679,7 +750,9 @@ footer ul li {
     legend {
         font-size: 1.5rem;
     }
-    p {
+    p,
+    details,
+    button {
         font-size: 1rem;
     }
     header,

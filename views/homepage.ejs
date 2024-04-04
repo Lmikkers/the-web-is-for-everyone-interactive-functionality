@@ -45,13 +45,15 @@
                             <% } %>
                             
                             <div class="description">
-                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
-                               
+                                
                                 <% if (service.start_date) { %>
                                     <p>
                                         <span><%= service.start_date %> - <%= service.end_date %></span>
                                     </p>
                                 <% } %>
+
+                                <a href="/vraag-aanbod/<%= service.id %>"><h3><%= service.title %></h3></a>
+                               
                                 
                                 <p><%- service.short_description %></p>
                             </div>
@@ -104,7 +106,7 @@
             <h2>Zelf een opdracht aanvragen?</h2>
             <p>Wil je iets vragen aan je mede-Amsterdammers of heb je iets aan te bieden aan de gemeenschap? Dat kan hier! Klik op de onderstaande knop om je vraag of aanbod te delen met de buurt. Samen maken we Amsterdam West een nog betere plek om te wonen.</p>
     
-            <a class="btn" href="/contact">Aanvragen</a>
+            <a class="btn" href="/opdracht-aanmelden">Aanvragen</a>
         </div>
     </section>
 </main>
