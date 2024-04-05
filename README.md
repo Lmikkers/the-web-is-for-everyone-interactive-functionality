@@ -26,6 +26,8 @@ Wanneer je op de site komt, zie je goed op de homepagina wat buurtinitiatieven A
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+**Progressive Enhancement:** is een (coding) strategy waarmee je er voor kan zorgen dat je website het altijd doet. Je begint eerst bij de core functionality van je website in HTML. Daarna voeg je CSS toe voor feedback voor de gebruiker en om de huisstijl toe te passen. En als laatste voeg je met CSS en JS extra enhancements toe om de User Experience te verbeteren. Als een browser CSS en/of JS niet ondersteunt valt het terug naar laag 1 of 2, zodat de website altijd werkt.
+
 - Visual Studio Code (Code editor)
 - Google Chrome (Browser)
 
