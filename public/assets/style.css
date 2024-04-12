@@ -80,6 +80,9 @@ article img {
     height: 100%;
     object-fit: cover;
 }
+nav ul .close {
+    display: none;
+}
 header {
     margin-top: 4rem;
 }
@@ -444,6 +447,17 @@ input:checked + span {
     color: white;
 }
 
+#aanmeldForm input:invalid,
+#aanmeldForm textarea:invalid {
+    border: 1px solid red;
+    background-color: rgb(255, 98, 98);
+}
+#aanmeldForm input:valid,
+#aanmeldForm textarea:valid {
+    border: 1px solid green;
+    background-color: lightgreen;
+}
+
 form h3 {
     text-align: center;
     text-transform: uppercase;
@@ -733,6 +747,9 @@ footer ul li {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
     }
+    nav ul li a {
+        padding: 1rem .5rem;
+    }    
 }
 
 /* MOBIEL */
@@ -803,6 +820,44 @@ footer ul li {
 
     .contactBlock {
         text-align: center;
+    }
+
+    /* mobiel menu */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: var(--mainColor);
+    }
+    nav ul li {
+        width: 100%;
+        padding: unset;
+        display: flex;
+    }
+    nav ul li a {
+        color: var(--fontColor);
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: ease-in-out .25s;
+        width: 100%;
+        padding: 1rem;
+    }
+    nav ul li a:hover {
+        color: var(--fontHoverColor);
+        border: unset;
+    }
+    nav ul li a.active {
+        font-weight: bold;
+        color: var(--fontColor);
+        border-bottom: unset;
+    }
+    nav ul .close {
+        display: flex;
+        align-self: flex-end;
+        margin-bottom: 1rem;
+        padding: 1rem;
     }
 }
 /* END RESPONSIVE */
